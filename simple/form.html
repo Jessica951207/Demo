@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>form</title>
+	<style type="text/css">
+		h1{text-align: center;}
+		
+	</style>
+</head>
+
+<body>
+<!--	注册-->
+	<h1>注册信息</h1>
+	<hr color="#336699">
+	<form>
+		<table cellpadding="0" cellspacing="0" width="600" bgcolor="#f2f2f2" align="center">
+			<tr>
+				<td>姓名：</td>
+				<td><input type="text" name="username"  maxlength="6" placeholder="请输入姓名"/></td>
+			</tr>
+			<tr>
+				<td>邮箱：</td>
+				<td><input type="text" name="email" value="@163.com"/></td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input type="password" name="paw" value="请输入密码" ></td>
+			</tr>
+			<tr>
+				<td>确认密码：</td>
+				<td><input type="password" name="paw" value="请再输入密码" ></td>
+			</tr>
+			<tr>
+				<td>上次照片：</td>
+				<td><input type="file" name="file"/></td>
+			</tr>
+			<tr>
+				<td>性别：</td>
+				<td>男<input type="radio" name="sex" value="man"/>
+					女<input type="radio" name="sex" value="woman"/>
+					保密<input type="radio" name="sex" value="secret" checked/>
+				</td>
+			</tr>
+			<tr>
+				<td>爱好：</td>
+				<td>读书<input type="checkbox" name="dx1" value="read" checked/>
+					跳舞<input type="checkbox" name="dx1" value="dance"/>
+					唱歌<input type="checkbox" name="dx1" value="sing"/>
+				</td>
+			</tr>
+			<tr>
+				<td>城市：</td>
+				<td>
+					<select name="city">
+						<option value="xz">--请选择--</option>
+						<option value="bj" selected>北京</option>
+						<option value="tj">天津</option>
+						<option value="hb">河北</option>
+						<option value="sh">上海</option>
+						<option value="fj">福建</option>
+						<option value="xm">厦门</option>						
+					</select>
+					<select name="city" size="6" multiple>
+						<option value="bj">北京</option>
+						<option value="tj">天津</option>
+						<option value="hb">河北</option>
+						<option value="sh">上海</option>
+						<option value="fj">福建</option>
+						<option value="xm">厦门</option>						
+					</select>
+					<select name="city">
+						<option>--请选择--</option>
+						<optgroup label="华北">
+							<option value="bj">北京</option>
+							<option value="tj">天津</option>
+							<option value="hb">河北</option>
+						</optgroup>
+						<optgroup label="华东">
+							<option value="sh">上海</option>
+							<option value="fj">福建</option>
+							<option value="xm">厦门</option>	
+						</optgroup>
+					</select>
+				</td>				
+			</tr>
+			<tr>
+				<td>爱好运动：</td>
+				<td>跑步<input type="checkbox" name="dx2" value="read" checked/>
+					篮球<input type="checkbox" name="dx2" value="dance"/>
+					调试<input type="checkbox" name="dx2" value="sing"/>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="button" value="来点我" name="button">
+					<input type="submit" value="Submit" name="submit">
+					<input type="reset" value="reset" name="reset">
+<!--					<input type="image" name="image_button" src="images/bottom_16.jpg">-->
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><input type="hidden" name="hidden" value="这是一个用户注册信息"></td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+	
+	
+	
+<!--	单行文本输入控件？-->
+<!--
+	<form action="#" method="get" name="frmSearch">
+		Search:<input type="text" name="txtSearch" value="Search for" size="20" maxlength="64"/>
+		<input type="submit" value="Submit"/>
+	</form>
+	<br>
+	<form action="#" method="post">
+		Username:<input type="text" name="txtUsername" value="" size="20" maxlength="20"/><br>
+		Password:<input type="password" name="pwdPassword" value="" size="20" maxlength="20"/><br>
+		<input type="submit" value="Submit">
+	</form>
+	<br>
+	<form action="#" method="post">
+		Please tell us what you think of the site and then click submit:<br>
+		<textarea name="txtFeedback" rows="20" cols="70">
+			Enter yooour feedback here 
+		</textarea>
+		<br>
+		<input type="sub  mit" value="Submit">
+	</form>
+	<br>
+-->
+	
+	
+</body>
+</html>

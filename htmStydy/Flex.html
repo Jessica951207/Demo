@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Flex布局</title>
+	<style type="text/css">
+		.box{width: 200px;height: 200px;border: 1px solid #000000;border-radius: 20px;}
+		.item{width: 40px;height: 40px;border: 1px solid #000000;border-radius: 50px;background: #000000;}
+		.box{display: flex;flex-wrap: wrap;align-content: space-between;}
+		.column{display: flex;flex-basis: 100%;}
+		.column:nth-child(1){justify-content: space-between;}
+		.column:nth-child(2){justify-content: center;}
+		.column:nth-child(3){justify-content: space-between;}
+		
+		/*.item:nth-child(2){align-self: center;}
+		.item:nth-child(3){align-self: flex-end;}*/
+		
+		.Grid-cell{background: #DCDADA;}
+		.Grid{display: flex;}
+		.Grid-cell{flex: 1;}
+		.Grid-cell.u-1of{flex: 0 0 100%;}
+		.Grid-cell.u-1of2{flex: 0 0 50%;}
+		.Grid-cell.u-1of3{flex: 0 0 33%;}
+		.Grid-cell.u-1of4{flex: 0 0 25%;}
+		
+		.H
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<div class="column">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+		</div>
+		<div class="column">
+			<span class="item"></span>		
+		</div>
+		<div class="column">
+			<span class="item"></span>
+			<span class="item"></span>			
+		</div>
+	</div>
+	
+	<div class="Grid">
+		<div class="Grid-cell u-1of4">...</div>
+		<div class="Grid-cell">...</div>
+		<div class="Grid-cell u-1of3">...</div>
+	</div>
+	
+	<div class="HolyGrail-body">
+		<main class="HolyGrail-content">...</main>
+		<nav class="HolyGrail-nav">...</nav>
+		<aside class="HolyGrail-ads">...</aside>
+	</div>
+</body>
+</html>

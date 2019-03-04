@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>超链接和图片提示效果</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+				//超链接的提示效果
+				var x = 10;
+				var y = 20;
+				$("a.tooltip").mouseover(function(e){
+					this.myTitle = this.title;
+					this.title = ""
+					var tooltip="<div id='tooltip>"+this.myTitle+"</div>";
+					$("body").append(tooltip);
+					$("#tooltip").css({"top":e.pageY+"px","left":e.pageX+"px"}).show("fast");
+				}).mouseout(function(){
+					this.tilte = this.myTitle;
+					$("#tooltip").remove();
+				})
+			
+				/*$("a.tooltip").mouseover(function(e){
+					var tooltip="<div id='tooltip>"+this.title+"</div>";
+					$("body").append(tooltip);
+					$("#tooltip").css({"top":e.pageY+"px","left":e.pageX+"px"}).show("fast");
+				}).mouseout(function(){
+					$("#tooltip").remove();
+				});*/
+			
+			
+				//点击显示，点击隐藏
+				$("#panel h5.head").bind("click",function(){
+					var $content = $(this).next();
+					if($content.is(":visible")){
+						$content.hide();					   
+					   }else{
+						$content.show();
+					}
+				})
+			
+			//点击显示，点击隐藏
+			$("#panel3 h5.head3").toggle(function(){
+				$(this).addClass("hightlight");
+				$(this).next().show("slow");
+			},function(){
+				$(this).removeClass("hightlight");
+				$(this).next().hide(1000);
+			})
+			
+			
+				
+				//移上去显示，移出隐藏
+				$("#panel1 h5.head1").mouseover(function(){
+					$(this).next().show();
+				}).mouseout(function(){
+					$(this).next().hide();
+				})
+			
+			//移上去显示，移出隐藏
+			$("#panel2 h5.head2").hover(function(){
+				$(this).next().show();
+			},function(){
+				$(this).next().hide();
+			})
+			})	
+	</script>
+	<style type="text/css">
+		.hightlight{background: #FF3300;}
+	</style>
+</head>
+
+<body>
+	<a href="#" class="tooltip" title="这是我的超链接提示1">提示1</a>
+	<a href="#" class="tooltip" title="这是我的超链接提示2">提示2</a>
+	<a href="#" title="这是自带提示1">自带提示1</a>
+	<a href="#" title="这是自带提示2">自带提示2</a>
+	
+	<div id="panel">
+		<h5 class="head">什么是JQuery？</h5>
+		<div class="content">
+			JQuery是继Prototype之后有一个优秀的Javascript库，他是一个由John创建于2006年的开源项目。
+		</div>
+	</div>
+	<hr>
+	<div id="panel3">
+		<h5 class="head3">我是谁？</h5>
+		<div class="content3">
+			我是toggle。
+		</div>
+	</div>
+	<hr>
+	<div id="panel1">
+		<h5 class="head1">JQuery是什么？</h5>
+		<div class="content1">
+			JQuery是继Prototype之后有一个优秀的Javascript库，他是一个由John创建于2006年的开源项目。
+		</div>
+	</div>
+	<hr>
+	<div id="panel2">
+		<h5 class="head2">什么是JQuery？</h5>
+		<div class="content2">
+			JQuery是继Prototype之后有一个优秀的Javascript库，他是一个由John创建于2006年的开源项目。
+		</div>
+	</div>
+	
+</body>
+</html>

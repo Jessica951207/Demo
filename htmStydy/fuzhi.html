@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>赋值操作符</title>
+</head>
+
+<body>
+	<script>
+		//获取拓展名
+		var url="http://baidu.com/index.txt";
+		function getFileFormat(){
+			//获取.在url出现的位置
+			var post=url.lastIndexOf(".");
+			return url.substr(post+1);
+		}
+		var formatName=getFileFormat(url);
+		var picFormat=getFileFormat("1231434.jpg");
+		console.log(formatName);
+		
+		
+		/*var  str="hello world";
+		//console.log(str[0]);
+		console.log(str.charCodeAtAt(4));
+*/		
+		
+		//indexof()检测值在数组中的位置
+		/*var nums=[1,7,5,7,8,1,6,9];
+		var pos=nums.indexOf(7.3);
+		console.log(pos);*/
+		
+		//封装一个方法实现indexOf的功能
+		/*function ArrayIndexOf(arr,value){
+			//检测value在arr中出现的位置
+			for(var i=0;i<a.length;i++){
+				if(arr[i]===value;){
+				   return i;
+				   }
+			}
+			return -1;
+		}
+		var pos2=ArrayIndexOf(nums,8);
+		console.log(pos2);*/
+		
+		
+		//var arr=["a","b","c","d","e","f"];
+		//splice()删除数组中的元素，返回删除的数组
+		/*var delArr=arr.splice(2,2);
+		console.log(arr);
+		console.log(delArr);*/
+		
+		//splice()插入数组中的元素
+		/*var insertArr=arr.splice(2,0,"m","n");
+		console.log(arr);
+		console.log(insertArr);*/
+		
+		//splice()替换，把该删掉的删掉，插入需要的值
+		/*var replaceArr=arr.splice(1,2,"x","y","z");
+		console.log(arr);
+		console.log(replaceArr);
+		
+		//push()把值添加到数组的后面
+		var colors=new Array("red","green");
+		colors.push("blue");
+		console.log(colors);
+		
+		//unshift()把值添加到数组的前面
+		var nums=[2,7,8,6];
+		var size=nums.unshift(99,66);
+		console.log(size);
+		
+		//pop()删除数组最后一个元素，返回被删除的元素
+		var n=nums.pop();
+		console.log(nums);
+		
+		//shif()删除数组的第一个元素
+		var m=colors.shift();
+		console.log(m);
+		
+		//jion()用于连接
+		var nums=[2,4,5];
+		var str=nums.join();
+		var words=["border","left","color"];
+		//border-left-color
+		var wordstr=words.join("-");
+		console.log(wordstr);
+		
+		//reverse()倒叙
+		nums.reverse(); 
+		console.log(nums);
+		
+		//返回一个dcba的字符串
+		var strs=["a","b","c","d"];
+		console.log(strs.reverse().join(""));
+		
+		//sort()排序
+		var arr=[9,23,15,88,12];
+		//对数组降序排列
+		//arr.sort(function(a,b){return b-a;})
+		//对数组升序排列
+		arr.sort(function(a,b){return a-b;})
+		console.log(arr);
+		
+		
+		var arr1=["a","b","c",],
+			arr2=["d","e",1,3],
+			arr3;
+		//concat()连接
+		arr3=arr1.concat(arr2,["m",99,8]);
+		console.log(arr3);
+		
+		//slice()截取数组中的一段,想取出某些值
+		var colors=["red","green","blue","yellow","orange"];
+		var newColors=colors.slice(1,3);
+		console.log(newColors);
+		
+		//完成以下代码，实现b 数组对a数组的拷贝
+		var a=[1,"yes",3],
+			b;
+		
+		//1、数组遍历，Push()
+		b=new Array;
+		for(var i=0;i<a.length;i++){
+			b.push(a[i]);
+		}
+		console.log(b);
+		
+		//2、concat()
+		b=[].concat(a);
+		console.log(b);
+		
+		//3、slice()
+		b=a.slice(0);
+		console.log(b);*/
+		
+		
+		//创建一个保存颜色的数组
+		/*var colors=new Array(3);
+		colors[0]="#f00";
+		colors[1]="#0f0";
+		colors[2]="#00f";
+		console.log(colors);
+		var nums=new Array(1,3,6,9);
+		//console.log(nums);
+		var cols=["red","yellow","green"];
+		//console.log(cols);
+		console.log(cols[1]);*/
+		
+		
+		/*var week=new Date().getDay();
+		//多条件的判断switch
+		switch(week){
+			case 0:
+				document.write("今天是星期日");
+				break;
+			case 1:
+				document.write("今天是星期一");
+				break;
+			case 2:
+				document.write("今天是星期二");
+				break;
+			case 3:
+				document.write("今天是星期三");
+				break;
+			case 4:
+				document.write("今天是星期四");
+				break;
+			case 5:
+				document.write("今天是星期五");
+				break;
+			default:
+				document.write("今天是星期六");
+			   }*/
+		
+		
+		//优化后的代码
+		/*var week=new Date().getDay();
+		var weekstr="";
+		//多条件的判断switch
+		switch(week){
+			case 0:
+				weekstr="日";
+				break;
+			case 1:
+				weekstr="一";
+				break;
+			case 2:
+				weekstr="二";
+				break;
+			case 3:
+				weekstr="三";
+				break;
+			case 4:
+				weekstr="四";
+				break;
+			case 5:
+				weekstr="五";
+				break;
+			default:
+				weekstr="六";
+			   }
+		document.write("今天是星期"+weekstr);*/
+		
+		
+		/*var pwd=prompt("请设置您的密码");
+		if(pwd.length!=6){
+		   alert("请输入6位的数字密码")；
+		   }
+		   else{
+			   if(isNaN(pwd)){
+				  alert("密码必须是数字")；
+				  }
+				  else{
+					  alert("密码设置正确")；
+				  
+				  }
+		   
+		   }
+		*/
+		
+		/*var age=15;
+		if(age<18){
+		   alert("您还没有成年")；
+		   }*/
+		/*var age=prompt("请输入您的年龄");
+		if(age<18){
+		   alert("您还没有成年")；
+		   }
+		else{
+			alert("您已经成年，请提供身份证号")；
+		}*/
+		
+		/*var score=80;
+		var result=(score>=60)?"及格":"不及格"；//三元判断
+		console.log(result);*/
+		
+	</script>
+</body>
+</html>
+ 

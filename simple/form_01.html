@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表格隔行变色</title>
+</head>
+
+<body>
+	<table id="data">
+		<thead>
+			<th>姓名</th>
+			<th>工资</th>
+			<th>入职时间</th>
+			<th>操作</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Tom</td>
+				<td>$3500</td>
+				<td>2010-10-25</td>
+				<td><a href="JavaScript:void(0)">删除</a></td>
+			</tr>
+			<tr>
+				<td>Mary</td>
+				<td>$3300</td>
+				<td>2010-8-25</td>
+				<td><a href="JavaScript:void(0)">删除</a></td>
+			</tr>
+			<tr>
+				<td>Alex</td>
+				<td>$3600</td>
+				<td>2010-10-24</td>
+				<td><a href="JavaScript:void(0)">删除</a></td>
+			</tr>
+			<tr>
+				<td>Jerry</td>
+				<td>$3400</td>
+				<td>2010-7-25</td>
+				<td><a href="JavaScript:void(0)">删除</a></td>
+			</tr>
+			<tr>
+				<td>Nancy</td>
+				<td>$3800</td>
+				<td>2010-10-20</td>
+				<td><a href="JavaScript:void(0)">删除</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$('#data>tbody>tr:odd').css('background','#ccccff');
+	</script>
+</body>
+</html>

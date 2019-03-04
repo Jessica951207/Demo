@@ -1,0 +1,28 @@
+*{padding: 0;
+    margin: 0;}
+#flash{
+    width: 800px;
+    height: 500px;
+    margin:0 auto;
+    position: relative;
+}
+.pic{
+    display: none;
+    position: absolute;
+    left: 20%;;
+    top: 0;
+	float: left;
+}
+#flash ul{
+    position: absolute;
+    left: 5%;
+    top: 10%;
+}
+#flash ul li{
+    list-style: none;
+    width: 12px;
+    height: 12px;
+    background-color: #DDDDDD;
+    border-radius: 50%;/*将正方形变成圆形*/
+    margin-bottom: 8px;
+}

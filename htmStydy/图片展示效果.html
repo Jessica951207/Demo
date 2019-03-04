@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片展示效果</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js">
+		$(function(){
+			var page = 1;
+			var i = 4;
+			$("span.next").click(function(){
+				
+				var $parent = $(this).parents("div.v_show");			//根据当前单击的元素获取到父元素
+				var $v_show = $parent.find("div.v_content_list");		//找到“视频内容展示区域”
+				var $v_content = $parent.find("div.v_content");			//找到“视频内容展示区域”外围的div
+				
+				var v_width = $v_content.width();						//总的视频图片数
+				var len = $v_show.find("li").length();
+				var page_count = Math.ceil(len/i);						//不是整数，就取整，取大值
+				
+				if(page == page_count){								//如果是最后一版面，再向后，就跳转到第一版面
+				   $v_show.animate({left:"0px"},"slow");
+					page = 1;
+				   }else{
+						$v_show.animate({left:"-="+v_width},"slow");
+					   	page++;
+						}
+			})
+		})
+	</script>
+	<style type="text/css">
+		*{margin: 0;padding: 0}
+		ul li{list-style: none;}
+		.v_show{width: 750px;margin: 0 auto;}
+		.v_caption{display: flex;margin-bottom: 20px;}
+		.change_btn{margin-right: 250px;}
+		
+		.v-content{width: 95%;margin: 0 auto;}
+		.v_content_list ul li{float: left;margin-right: 15px;}
+	</style>
+</head>
+
+<body>
+	<div class="v_show">
+		<div class="v_caption">
+			<h2 class="cartoon" title="卡通动漫">卡通动漫</h2>
+			<div class="hightlight_tip">
+				<span class="current">1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+			</div>
+			<div class="change_btn">
+				<span class="prev">上一页</span>
+				<span class="next">下一页</span>
+			</div>
+			<em><a href="#">更多>></a></em>
+		</div>
+		<div class="v-content">
+			<div class="v_content_list">
+				<ul>
+					<li>
+						<a href="#"><img src="images/backen_campaign_07.jpg" alt=""></a>
+						<h4><a href="#"></a>烘焙</h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="images/backen_campaign_07.jpg" alt=""></a>
+						<h4><a href="#"></a>烘焙</h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="images/backen_campaign_07.jpg" alt=""></a>
+						<h4><a href="#"></a>烘焙</h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="images/backen_campaign_07.jpg" alt=""></a>
+						<h4><a href="#"></a>烘焙</h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

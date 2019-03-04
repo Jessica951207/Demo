@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="keywords" content="" >
+<meta http-equiv="description" content="">
+<title>网页练习</title>
+<style type="text/css">
+#a{ width:1200px;height:1200px; border:1px solid #000;margin:100px auto; postion:relative; background-image:url(img/dzq.jpg);background-repeat:no-repeat; background-position:0 0;}
+#Amplification,#Narrow{ background-color:#99ccff; border-radius:6px; width:120px; height:40px; line-height:40px; text-align:center; position:absolute;box-shadow:10px 10px 20px #666; -webkit-box-shadow:10px 10px 20px #666; -moz-box-shadow:10px 10px 20px #666; font-size:36px;}
+#Amplification{ left:100px; top:20px;}
+#Narrow{ left:400px; top:20px;}
+#Amplification:hover,#Narrow:hover{ cursor:pointer;}
+</style>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+       var isclick=false;
+	   var divx=0;
+	   var divy=0;
+	   var bgw=240;
+	   var bgh=300;
+	   var big=1.5;
+	   var small=0.6;
+	   $(function(){
+		   $("#a").mousedown(function(e){             //鼠标左击事件  //
+			   e.stopImmediatePropagation();          //阻止子元素传递到父本//
+			   isclick=true;                          //给予真假的值；用于后面的判断鼠标是否为点击状态；相当于开关；//
+			   divx=e.clientX;                        //声明divx值鼠标指针相当于页面浏览器的水平坐标//
+			   divy=e.clientY;                       //声明divy值鼠标指针相当于页面浏览器的垂直坐标//
+		});
+			$("#a").mousemove(function(e){           //鼠标拖动事件//
+			   e.stopImmediatePropagation();
+			   if(isclick){                          //判断条件就是鼠标是否为点击状态//
+				   var x=e.clientX-divx;             //声明x的值为鼠标拖动的水平距离//
+				   var y=e.clientY-divy;             //声明y的值为鼠标拖动的垂直距离//
+				   var bg=$(this).css("background-position").split(' ');   //声明bg的值为background-position的值，并转换成数组分割开//
+				   var bgx=x+parseInt(bg[0]);        //声明bgx=x+背景图片位置；parseInt是取数字去单位//
+				   var bgy=y+parseInt(bg[1]);
+				   if(bgx<=0)bgx=0;                  //给予图片左边框和上边框的限制//
+				   if(bgy<=0)bgy=0;
+				   var bgz=$("#a").css("background-size");     //声明bgz为图片尺寸//
+				   var  bgzw=0;
+				   var  bgzh=0;
+				   if(bgz=="auto"||bgz=="auto auto"){           //判断条件为图片尺寸是否发生过改动；兼容火狐浏览器//
+				   
+					 bgzw=bgw;                                  //令bgzw的值为图片的宽//
+					 bgzh=bgh;
+				    }else{
+				     var  bgzo=bgz.split(' ');                  //声明bgzo为bgz的转化数组并分割；//            
+					 bgzw=parseInt(bgzo[0]);                    
+					 bgzh=parseInt(bgzo[1]);
+					}
+				   if(bgx>=(1200-bgzw)){bgx=(1200-bgzw);}       //给予右边和下边的边框，根据图片的大小变化//
+				   if(bgy>=(1200-bgzh)){bgy=(1200-bgzh);}
+				   $("#a").css("background-position",bgx+"px "+bgy+"px");  //显示a的div中背景图片的位置//
+				   divx=e.clientX;                    //声明divx为鼠标点击事件发生时候鼠标指针在页面浏览器上的水平距离//
+				   divy=e.clientY;
+			   }
+			}); 
+			$("html").mouseup(function(e){           //html页面//
+				e.stopImmediatePropagation();
+				isclick=false;                       //当鼠标松开事件,isclick赋值false功能关闭//
+			}); 
+			
+			$("#Amplification").click(function(){             
+				var bgz=$("#a").css("background-size");   //bgz的值为背景图片的尺寸//
+				if(bgz=="auto" || bgz=="auto auto"){
+					$("#a").css("background-size",(bgw*big)+"px "+(bgh*big)+"px"); //显示背景图片尺寸//
+					
+				}else{
+					  var bgzo=bgz.split(' ');               //转化数组分割//
+					  var bgzw=parseInt(bgzo[0])*big;         //取数字去单位之后乘以固定倍数//
+				      var bgzh=parseInt(bgzo[1])*big;
+					  if(bgzw<=1200&&bgzh<=1200){             //判断条件为宽和高都要小于或等于1200时候//
+						$("#a").css("background-size",bgzw+"px "+bgzh+"px");
+					}	  
+			    }
+			});
+			$("#Narrow").click(function(){                       //点击缩小事件时候//
+				var bgz=$("#a").css("background-size");
+				if(bgz=="auto" || bgz=="auto auto"){
+					$("#a").css("background-size",(bgw*small)+"px "+(bgh*small)+"px")
+				}else{
+					  var bgzo=bgz.split(' ');
+					  var bgzw=parseInt(bgzo[0]);
+				      var bgzh=parseInt(bgzo[1]);
+					  $("#a").css("background-size",(bgzw*small)+"px "+(bgzh*small)+"px")
+				}
+				});
+			
+		   });
+		   
+</script>
+</head>
+<body>
+      <div id="Amplification">+</div>
+      <div id="Narrow">-</div>
+      <div id="a"></div>
+</body>
+</HTML>

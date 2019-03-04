@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>自定义简单动画</title>	
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			//点击开始动画效果
+			/*$("#panel").click(function(){
+				$("#panel").css("opcity","0.5");
+				$(this).animate({left:"500px",height:"200px",opacity:"1"},3000)
+						.animate({top:"200px",width:"200px"},3000,function(){
+						$(this).css("border","4px solid black")
+				})
+						
+			})*/
+			
+			//移入移出，停止元素的动画
+			/*$("#panel").hover(function(){
+				$(this).stop(true,true).animate({height:"150"},200).animate({width:"300"},300);
+			},function(){
+				$(this).stop(true,true).animate({height:"22"},200).animate({width:"60"},300);
+			})*/
+			
+			//延迟动画，第一个效果结束停顿3000ms进入下一个效果
+			/*$("#panel").hover(function(){
+				$(this).animate({left:"400px",height:"200px",opacity:"1"},3000).delay(1000)
+				.animate({top:"200px",width:"200px"},3000).delay(2000)
+				.fadeOut("slow");
+			})*/
+			
+			$("#panel h5.head").click(function(){
+				$(this).next().fadeToggle();
+			});
+		})
+	</script>
+	<style type="text/css">
+		#panel{
+			position: relative;
+			width: 100px;
+			height: 100px;
+			border: 1px solid #0050D0;
+			background: #F7AEAF;
+			cursor: pointer;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<div id="panel">
+		<h5 class="head">You are</h5>
+		<h5 class="head">beautiful</h5>
+	</div>
+</body>
+</html>
